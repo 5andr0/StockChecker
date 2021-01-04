@@ -308,7 +308,7 @@ namespace RTXchecker
 					// TODO: reload config
 					break;
 				case "f":
-				case "refretch":
+				case "refetch":
 					FetchProductInfos();
 					break;
 				default:
