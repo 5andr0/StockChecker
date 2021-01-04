@@ -38,8 +38,9 @@ NVIDIA_RTX_3090 = 0
 - For RTX 30 Cards I recommend to reuse the preset collections from  
 [www.mediamarkt.de/de/campaign/grafikkarten-nvidia-geforce-rtx-30.html](www.mediamarkt.de/de/campaign/grafikkarten-nvidia-geforce-rtx-30.html)  
 Setting `NVIDIA_RTX_3080 = 1` will include all 3080 cards listed on the rtx 30 campaign page.  
-The collection key name is derived dynamically from the field `{"__typename":"GraphqlBreadcrumb","name":"NVIDIA RTX 3060 Ti"}` by replacing spaces with underscores.  
-That way it will support upcoming collections like the 3080 Ti.  
+The collection key name is derived dynamically from a GraphqlBreadcrumb field by replacing spaces with underscores:  
+`{"__typename":"GraphqlBreadcrumb","name":"NVIDIA RTX 3060 Ti"}`  
+That way it will support upcoming collections like the 3080 Ti.
 
 - If you only want to check for OC cards, you can exclude non-oc cards by adding their ID to the ignore collection.  
 Product IDs can be found at the end of each product URL.  
