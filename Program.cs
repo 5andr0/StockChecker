@@ -67,6 +67,17 @@ namespace RTXchecker
 				{
 					if (info.Delivery.HasValue)
 					{
+						string maxPrice = config["general"]["max_price"];
+						if (!String.IsNullOrEmpty(maxPrice))
+						{
+							if (info.Price > Convert.ToDecimal(maxPrice))
+							{
+								Console.WriteLine(info.Title + " is available for " + info.Price + " Euro "
+									+ " but exceeds the price limit of " + maxPrice + " Euro");
+								continue;
+							}
+						}
+
 						Console.WriteLine(info.Title + " is available for " + info.Price + " Euro at " + info.Delivery);
 						driver.SwitchTo().NewWindow(WindowType.Tab);
 						driver.Navigate().GoToUrl("https://www.mediamarkt.de" + info.Url);
