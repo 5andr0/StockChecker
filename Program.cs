@@ -13,13 +13,13 @@ using IniParser.Model;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools;
-using OpenQA.Selenium.DevTools.V87.Network;
-using OpenQA.Selenium.DevTools.V87.Fetch;
-using DevToolsSessionDomains = OpenQA.Selenium.DevTools.V87.DevToolsSessionDomains;
-using RequestPattern = OpenQA.Selenium.DevTools.V87.Fetch.RequestPattern;
-using RequestPausedEventArgs = OpenQA.Selenium.DevTools.V87.Fetch.RequestPausedEventArgs;
-using GetResponseBodyCommandSettings = OpenQA.Selenium.DevTools.V87.Fetch.GetResponseBodyCommandSettings;
-using EnableCommandSettings = OpenQA.Selenium.DevTools.V87.Fetch.EnableCommandSettings;
+using OpenQA.Selenium.DevTools.V89.Network;
+using OpenQA.Selenium.DevTools.V89.Fetch;
+using DevToolsSessionDomains = OpenQA.Selenium.DevTools.V89.DevToolsSessionDomains;
+using RequestPattern = OpenQA.Selenium.DevTools.V89.Fetch.RequestPattern;
+using RequestPausedEventArgs = OpenQA.Selenium.DevTools.V89.Fetch.RequestPausedEventArgs;
+using GetResponseBodyCommandSettings = OpenQA.Selenium.DevTools.V89.Fetch.GetResponseBodyCommandSettings;
+using EnableCommandSettings = OpenQA.Selenium.DevTools.V89.Fetch.EnableCommandSettings;
 
 namespace RTXchecker
 {
@@ -190,8 +190,7 @@ namespace RTXchecker
 			driver.Manage().Timeouts().AsynchronousJavaScript.Add(TimeSpan.FromHours(1));
 
 			IDevTools devTools = driver as IDevTools;
-			session = devTools.CreateDevToolsSession();
-			session.Start().Wait();
+			session = devTools.GetDevToolsSession();
 			domains = session.GetVersionSpecificDomains<DevToolsSessionDomains>();
 
 			EventHandler<RequestPausedEventArgs> requestPaused = async (sender, e) =>
